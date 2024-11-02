@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navCall"
+            android:icon="@drawable/call"
+            android:title="开打"/>
+        <item
+            android:id="@+id/navFriends"
+            android:icon="@drawable/friends"
+            android:title="找朋友"/>
+        <item
+            android:id="@+id/navMail"
+            android:icon="@drawable/mail"
+            android:title="信封"/>
+        <item
+            android:id="@+id/navTask"
+            android:icon="@drawable/task"
+            android:title="好多事"/>
+
+    </group>
+
+</menu>

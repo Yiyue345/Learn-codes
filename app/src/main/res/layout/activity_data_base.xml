@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DataBase">
+
+    <Button
+        android:id="@+id/createDatabase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="来创建一个数据库吧！"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="来往数据库里加东西吧！"
+        app:layout_constraintEnd_toEndOf="@+id/createDatabase"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/createDatabase"
+        app:layout_constraintTop_toBottomOf="@+id/createDatabase" />
+
+    <Button
+        android:id="@+id/upgradeData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="柚子社打折啦！！！"
+        app:layout_constraintEnd_toEndOf="@+id/addData"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="@+id/addData"
+        app:layout_constraintTop_toBottomOf="@+id/addData" />
+
+    <Button
+        android:id="@+id/deleteData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="ban掉柚子厨"
+        app:layout_constraintEnd_toEndOf="@+id/upgradeData"
+        app:layout_constraintStart_toStartOf="@+id/upgradeData"
+        app:layout_constraintTop_toBottomOf="@+id/upgradeData" />
+
+    <Button
+        android:id="@+id/queryData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="柚子厨与nobody各有几"
+        app:layout_constraintEnd_toEndOf="@+id/deleteData"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@+id/deleteData"
+        app:layout_constraintTop_toBottomOf="@+id/deleteData" />
+
+    <Button
+        android:id="@+id/replaceData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="全部变成柚子厨！！！"
+        app:layout_constraintEnd_toEndOf="@+id/queryData"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/queryData"
+        app:layout_constraintTop_toBottomOf="@+id/queryData" />
+</androidx.constraintlayout.widget.ConstraintLayout>

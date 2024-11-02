@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication"
+        tools:targetApi="31">
+        <activity
+            android:name=".jetpack.JetpackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.FruitActivity"
+            android:exported="false"
+            android:theme="@style/FruitActivityTheme" />
+        <activity
+            android:name=".activity.Material"
+            android:exported="false"
+            android:label="Ciallo～" />
+        <activity
+            android:name=".activity.MoreInternet"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TryInternet"
+            android:exported="false" />
+
+        <service
+            android:name=".MyIntentService"
+            android:enabled="true"
+            android:exported="true">
+
+        </service>
+
+        <activity
+            android:name=".activity.TryService"
+            android:exported="false" />
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="dataSync"
+            tools:ignore="ForegroundServicePermission">
+
+            <!-- service要选择合适的类型！ -->
+        </service>
+
+        <activity
+            android:name=".activity.Playing"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Media"
+            android:exported="false" />
+
+        <provider
+            android:name=".DatabaseProvider"
+            android:authorities="com.example.myapplication.provider"
+            android:enabled="true"
+            android:exported="true" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.myapplication.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".activity.DataBase"
+            android:exported="false" />
+
+        <receiver
+            android:name=".lei.AnotherBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.myapplication.MY_BROADCAST" />
+            </intent-filter>
+        </receiver> <!-- 在这声明！ -->
+        <receiver
+            android:name=".activity.BaseActivity$ForceOfflineReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.myapplication.FORCE_OFFLINE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".lei.MyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="100">
+                <action android:name="com.example.myapplication.MY_BROADCAST" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".lei.BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".activity.Broadcasts"
+            android:exported="false" />
+        <activity
+            android:name=".activity.FragmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ListView"
+            android:exported="false"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.RecyclerView"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TestActivity"
+            android:exported="true"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.ThirdActivity"
+            android:exported="true">
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.SecondActivity"
+            android:exported="true"
+            android:launchMode="singleInstance"> <!-- 这玩意要改成true！！！ -->
+
+            <intent-filter>
+                <action android:name="com.example.activitytest.ACTION_START" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.activitytest.MY_CATEGORY" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.FirstActivity"
+            android:exported="true"
+            android:label="我是一个标签"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
