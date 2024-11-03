@@ -2,7 +2,7 @@
 
 要方便也只能是binding了（吧
 
-##### 在Activity中用binding
+#### 在Activity中用binding
 
 在Activity中用binding要在class里边来个定义
 
@@ -25,7 +25,7 @@ binding.cannotDoAnymore
 
 这样调用一个控件了！
 
-##### 至于在Fragment中……
+#### 至于在Fragment中……
 
 大差不差啦，比如开始可以这样写
 
