@@ -93,6 +93,7 @@ dependencies {
     ksp("androidx.room:room-compiler:2.6.1")
 
     implementation(libs.androidx.room)
+    implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.work)
 //    implementation(libs.androidx.room.compiler.v210)
 
