@@ -1,10 +1,10 @@
 如今已经没有什么kotlin-android-extensions了啊
 
-要方便也只能是binding了（吧
+要方便也只能是`binding`了（吧
 
 #### 在Activity中用binding
 
-在Activity中用binding要在class里边来个定义
+在`Activity`中用`binding`要在class里边来个定义
 
 ```kotlin
 private lateinit var binding: FirstLayoutBinding
@@ -36,7 +36,7 @@ private val binding get() = _binding!!
 
 这里用!!是为了防止之后要用一堆?.  不太好看说实话
 
-然后在onCreateView之中这样写
+然后在`onCreateView`之中这样写
 
 ```kotlin
 override fun onCreateView(
@@ -49,9 +49,9 @@ inflater: LayoutInflater,
 }
 ```
 
-大功告成！之后你就能在Fragment中摆脱一大堆findViewById了吗？
+大功告成！之后你就能在Fragment中摆脱一大堆`findViewById`了吗？
 
-还有一步，就是在onDestroyView中把这个binding再干掉！
+还有一步，就是在`onDestroyView`中把这个`binding`再干掉！
 
 如下
 
@@ -69,3 +69,6 @@ override fun onDestroyView() {
 
 
 哎呀不管那么多有的没的了，感谢GPT神医就完了
+
+##### 下一集：回来吧findViewById
+
