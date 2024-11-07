@@ -5,6 +5,7 @@ plugins {
     id("com.google.devtools.ksp")
 }
 
+
 android {
     namespace = "com.example.myapplication"
     compileSdk = 34
@@ -21,6 +22,7 @@ android {
             useSupportLibrary = true
         }
     }
+
 
     buildTypes {
         release {
@@ -50,6 +52,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
 }
 
 //configurations.all {
@@ -57,7 +60,6 @@ android {
 //        force("org.jetbrains:annotations:23.0.0")
 //    }
 //}
-
 
 dependencies {
     implementation(libs.androidx.core.ktx)
@@ -95,6 +97,7 @@ dependencies {
     implementation(libs.androidx.room)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.work)
+//    implementation("org.litepal.guolindev:core:3.2.3")
 //    implementation(libs.androidx.room.compiler.v210)
 
 
