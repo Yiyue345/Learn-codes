@@ -1,11 +1,9 @@
 package com.example.myapplication.activity
 
 import android.Manifest
-import android.app.Activity
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -46,8 +44,8 @@ class Media : BaseActivity() {
             insets
         }
 
-        val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        val manager2 = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        val manager2 = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -130,14 +128,14 @@ class Media : BaseActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             takePhoto -> {
-                if (resultCode == Activity.RESULT_OK) {
+                if (resultCode == RESULT_OK) {
                     // 显示照片
                     val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri))
                     binding.imageView.setImageBitmap(rotateIfRequired(bitmap))
                 }
             }
             fromAlbum -> {
-                if (resultCode == Activity.RESULT_OK && data != null) {
+                if (resultCode == RESULT_OK && data != null) {
                     data.data?.let { uri ->
                         // 显示图片捏
                         val bitmap = getBitmapFromUri(uri)

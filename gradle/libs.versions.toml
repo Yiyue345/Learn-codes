@@ -24,6 +24,7 @@ roomCompiler = "2.6.1"
 roomKtx = "2.6.1"
 swiperefreshlayout = "1.1.0"
 work = "2.9.1"
+litepal = "3.2.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -58,7 +59,9 @@ converter-gson = {module = "com.squareup.retrofit2:converter-gson", version.ref 
 circleimageview = {module = "de.hdodenhof:circleimageview", version.ref = "circleimageview"}
 glide = {module = "com.github.bumptech.glide:glide", version.ref = "glide"}
 androidx-swiperefreshlayout = {module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout"}
+litepal = { module = "org.litepal.guolindev:core", version.ref = "litepal" }
+
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
