@@ -97,6 +97,8 @@ dependencies {
     implementation(libs.androidx.room)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.work)
+    implementation(libs.moshi)
+    implementation(libs.moshi.kotlin)
 //    implementation("org.litepal.guolindev:core:3.2.3")
 //    implementation(libs.androidx.room.compiler.v210)
 

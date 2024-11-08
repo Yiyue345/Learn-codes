@@ -11,6 +11,9 @@ import com.example.myapplication.databinding.ActivityMoreInternetBinding
 import com.example.myapplication.lei.APP
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONArray
@@ -56,7 +59,8 @@ class MoreInternet : BaseActivity() {
                 if (responseData != null) {
 //                    parseXMLWithSAX(responseData)
 //                    parseJSONWithJSONObject(responseData)
-                    parseJSONWithGSON(responseData)
+//                    parseJSONWithGSON(responseData)
+                    parseJSONWithMoshi(responseData)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -72,7 +76,7 @@ class MoreInternet : BaseActivity() {
                 val response = StringBuilder()
                 val url = URL("https://bing.com")
                 connection = url.openConnection() as HttpURLConnection
-                connection .connectTimeout = 8000
+                connection.connectTimeout = 8000
                 connection.readTimeout = 8000
                 val input = connection.inputStream
                 // 下面对获取到的输入流进行读取
@@ -176,6 +180,22 @@ class MoreInternet : BaseActivity() {
             Log.d("MoreInternet", "id is ${app.id}")
             Log.d("MoreInternet", "name is ${app.name}")
             Log.d("MoreInternet", "version is ${app.version}")
+        }
+    }
+
+    private fun parseJSONWithMoshi(jsonData: String) {
+        val moshi = Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
+        val type = Types.newParameterizedType(List::class.java, APP::class.java)
+        val jsonAdapter = moshi.adapter<List<APP>>(type)
+        val appList: List<APP>? = jsonAdapter.fromJson(jsonData)
+        if (appList != null) {
+            for (app in appList) {
+                Log.d("MoreInternet", "id is ${app.id}")
+                Log.d("MoreInternet", "name is ${app.name}")
+                Log.d("MoreInternet", "version is ${app.version}")
+            }
         }
     }
 
