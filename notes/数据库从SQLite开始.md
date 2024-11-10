@@ -6,6 +6,8 @@
 
 SQL是不分大小写的
 
+有时工具不一定靠谱，真正重要的是靠自己的判断
+
 #### 省流
 
 ------
@@ -52,6 +54,8 @@ create table Note (
 ```
 
 也就是`create table 表名 (一堆值的名及类型(可选))`
+
+如果想要默认值，可以在类型后面加上`NOT NULL DEFAULT 默认值`
 
 往表里面插入新的数据如下
 
@@ -131,6 +135,23 @@ val cursor = db.query("Book", null, null, null, null, null, null)
 ```kotlin
 val cursor = db.rawQuery("select * from Book", null) 
 ```
+
+要一行一行查询数据可以这样
+
+```kotlin
+if (cursor.moveToFirst()) {
+    do {
+    val name = cursor.getString(cursor.getColumnIndex("name"))
+    val author = cursor.getString(cursor.getColumnIndex("author"))
+    val pages = cursor.getInt(cursor.getColumnIndex("pages"))
+    val price = cursor.getDouble(cursor.getColumnIndex("price"))
+    } while (cursor.moveToNext())
+}
+cursor.close() // 最后别忘了关掉
+
+```
+
+
 
 #### 事务(transaction)
 
