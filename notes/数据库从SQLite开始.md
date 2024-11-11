@@ -70,6 +70,14 @@ db.insert("Note", null, value)
 
 在kt里面可以这样组装一个数据再插入，插入不过就是`db.insert(表名, null, 值)`
 
+除此之外，插入还可以用`insertWithOnConflict`，用来处理可能出现的冲突，只要在最后多加一个参数，比如
+
+```kotlin
+db.insertWithOnConflict("word", null, values, SQLiteDatabase.CONFLICT_IGNORE) // 忽略相同id
+```
+
+这样就是当主键冲突时忽略然后继续插入
+
 直接用SQL那就是`insert into 表名 (键) values(值)`后面再填值，例如
 
 ```kotlin
