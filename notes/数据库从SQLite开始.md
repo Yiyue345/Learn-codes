@@ -159,7 +159,11 @@ cursor.close() // 最后别忘了关掉
 
 ```
 
+在查询数据时一定要先用`moveToFirst()`转到第一个符合条件的数据，不然会狠狠地报错！
 
+#### 有关更多SQL语句
+
+`id BETWEEN A AND B`可以查询所有符合A≤id≤B的行
 
 #### 事务(transaction)
 
