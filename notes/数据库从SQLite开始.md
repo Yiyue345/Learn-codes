@@ -132,6 +132,8 @@ update 表名 set 列名 = ? where 条件
 
 `db.query(table, columns, selections, selectionArgs, groupBy, having, orderBy)`
 
+使用`having`时必须也要有`groupBy`否则会狠狠报错
+
 一般情况下都是用不到那么多个参数的，所以不要的地方用`null`填满就好了，比如
 
 ```kotlin
@@ -156,14 +158,17 @@ if (cursor.moveToFirst()) {
     } while (cursor.moveToNext())
 }
 cursor.close() // 最后别忘了关掉
-
 ```
+
+不过用`getColumnIndexOrThrow`比用`getColumnIndex`要更安全，不然有可能直接得到-1崩掉
 
 在查询数据时一定要先用`moveToFirst()`转到第一个符合条件的数据，不然会狠狠地报错！
 
 #### 有关更多SQL语句
 
 `id BETWEEN A AND B`可以查询所有符合A≤id≤B的行
+
+`DESC`代表倒序查找
 
 #### 事务(transaction)
 
